@@ -1,0 +1,26 @@
+﻿@model AppRecibos.Models.Recibo
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "_Layout";
+}
+
+<div class="container-recibo">
+    <div class="card-recibo">
+        <div>
+            <h2>Eliminar un recibo</h2>
+            <a href="~/Recibos/Index">&times;</a>
+        </div>
+
+        <hr>
+
+        <form method="post" action="~/Recibos/Eliminar">
+            <input type="hidden" asp-for="Id" />
+
+            <label>Ha seleccionado el recibo del proveedor <strong>@Model.Proveedor</strong> por el monto de <strong>@Model.Monto</strong> en la moneda <strong>@Model.Moneda</strong> del día <strong>@Model.Fecha.Date.ToShortDateString()</strong>.</label>
+
+            <div class="container-button">
+                <input class="btn" type="submit" value="Eliminar">
+            </div>
+        </form>
+    </div>
+</div>

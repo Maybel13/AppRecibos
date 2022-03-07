@@ -1,0 +1,55 @@
+﻿@model List<AppRecibos.Models.Recibo>
+@{
+    ViewData["Title"] = "Recibos";
+    Layout = "_Layout";
+}
+<div class="container-lg">
+    <div class="container-search-add">
+        <div class="container-search">
+            <input type="search" placeholder="Buscar recibo por Id o por Proveedor" class="form-control" id="seeker-recibo" onkeyup="searchRecibo()">
+        </div>
+        <div class="container-add">
+            <span>
+                <a href="~/Recibos/Agregar">Agregar</a>
+            </span>
+        </div>
+    </div>
+
+    <div class="container-recibos">
+        <div class="table-responsive">
+            <table class="table table-hover" id="table-recibo">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Proveedor</th>
+                        <th scope="col">Monto</th>
+                        <th scope="col">Moneda</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Comentario</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var recibo in Model)
+                    {
+                        <tr>
+                            <td>@recibo.Id</td>
+                            <td>@recibo.Proveedor</td>
+                            <td>@recibo.Monto</td>
+                            <td>@recibo.Moneda</td>
+                            <td>@recibo.Fecha.Date.ToShortDateString()</td>
+                            <td>@recibo.Comentario</td>
+                            <td>
+                                <a href="~/Recibos/Editar/@recibo.Id"><i class="fas fa-edit"></i></a>
+                                <a href="~/Recibos/Eliminar/@recibo.Id"><i class="fas fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="alert alert-info" role="alert" id="search-recibo-coincidences"></div>
+        <div class="alert alert-danger" role="alert" id="search-recibo-coincidences-none"></div>
+    </div>
+</div>

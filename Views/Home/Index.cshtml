@@ -1,0 +1,58 @@
+﻿@model AppRecibos.Models.Usuario
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/css/bootstrap.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="~/css/style.css">
+
+    <!-- Icon -->
+    <link rel="shortcut icon" href="~/img/logo.png" type="image/x-icon" />
+</head>
+
+<body>
+    <main>
+        <div class="container-login">
+            <div class="card-login">
+                <div class="img-login">
+                    <img src="~/img/logo.svg" alt="logo">
+                </div>
+
+                <div class="form-login">
+                    <h1>Bienvenido</h1>
+                    <p>Inicie sesión con su usuario (admin) y contraseña (12345)</p>
+                    <form method="post" action="~/Home/Index">
+                        <div class="form-group">
+                            <label>Usuario</label>
+                            <input type="text" class="form-control" asp-for="Nombre" required>
+                            <label>Contraseña</label>
+                            <input type="password" class="form-control" asp-for="Contrasena" required>
+                        </div>
+
+                        <span class="error">@Html.ValidationSummary()</span>
+
+                        <button type="submit" class="btn btn-login">Iniciar sesión</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap Javascript -->
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/jquery.min.js"></script>
+
+    <!-- Main Javascript -->
+    <script src="~/js/main.js"></script>
+</body>
+</html>
